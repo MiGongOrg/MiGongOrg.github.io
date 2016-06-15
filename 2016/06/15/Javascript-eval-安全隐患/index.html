@@ -61,7 +61,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Ming" />
+  <meta name="keywords" content="eval()," />
 
 
 
@@ -77,16 +77,34 @@
 
 
 
-<meta name="description" content="About Me123456789var About = &amp;#123;  Contact:function()&amp;#123;    var My = &amp;#123;&amp;#125;;    My.QQ = 133609090;    My.Blog = &apos;www.migojng.org&apos;    My.GitHub = &apos;migongorg.github.com&apos;    return My;  &amp;#125;">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About Me">
-<meta property="og:url" content="http://MiGongOrg.github.io/about/index.html">
+<meta name="description" content="为什么 eval() 存在安全隐患eval() 函数可以将字符进行编译后执行，如果使用 eval() 处理 JSON 数据，当服务器本身或发来的 JSON 数据被劫持，就很容易被利用，在客户端编译执行恶意代码。
+如何防范和避免
+使用 JSON.parse() 代替 eval() 因为 JSON.parse() 更加安全
+将 JSON 数据中的 html 字符进行转码
+
+推荐阅读
+《JSON 必知必">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript eval() 安全隐患">
+<meta property="og:url" content="http://MiGongOrg.github.io/2016/06/15/Javascript-eval-安全隐患/index.html">
 <meta property="og:site_name" content="Ming">
-<meta property="og:description" content="About Me123456789var About = &amp;#123;  Contact:function()&amp;#123;    var My = &amp;#123;&amp;#125;;    My.QQ = 133609090;    My.Blog = &apos;www.migojng.org&apos;    My.GitHub = &apos;migongorg.github.com&apos;    return My;  &amp;#125;">
-<meta property="og:updated_time" content="2016-06-12T09:15:14.000Z">
+<meta property="og:description" content="为什么 eval() 存在安全隐患eval() 函数可以将字符进行编译后执行，如果使用 eval() 处理 JSON 数据，当服务器本身或发来的 JSON 数据被劫持，就很容易被利用，在客户端编译执行恶意代码。
+如何防范和避免
+使用 JSON.parse() 代替 eval() 因为 JSON.parse() 更加安全
+将 JSON 数据中的 html 字符进行转码
+
+推荐阅读
+《JSON 必知必">
+<meta property="og:updated_time" content="2016-06-15T06:47:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About Me">
-<meta name="twitter:description" content="About Me123456789var About = &amp;#123;  Contact:function()&amp;#123;    var My = &amp;#123;&amp;#125;;    My.QQ = 133609090;    My.Blog = &apos;www.migojng.org&apos;    My.GitHub = &apos;migongorg.github.com&apos;    return My;  &amp;#125;">
+<meta name="twitter:title" content="JavaScript eval() 安全隐患">
+<meta name="twitter:description" content="为什么 eval() 存在安全隐患eval() 函数可以将字符进行编译后执行，如果使用 eval() 处理 JSON 数据，当服务器本身或发来的 JSON 数据被劫持，就很容易被利用，在客户端编译执行恶意代码。
+如何防范和避免
+使用 JSON.parse() 代替 eval() 因为 JSON.parse() 更加安全
+将 JSON 数据中的 html 字符进行转码
+
+推荐阅读
+《JSON 必知必">
 
 
 
@@ -107,15 +125,9 @@
 
 
 
-  <link rel="canonical" href="http://MiGongOrg.github.io/about/"/>
+  <link rel="canonical" href="http://MiGongOrg.github.io/2016/06/15/Javascript-eval-安全隐患/"/>
 
-  <title>
-  
-
-  
-    About Me | Ming
-  
-</title>
+  <title> JavaScript eval() 安全隐患 | Ming </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -136,7 +148,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -216,9 +228,130 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-      <h1 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> About = &#123;</span><br><span class="line">  Contact:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> My = &#123;&#125;;</span><br><span class="line">    My.QQ = <span class="number">133609090</span>;</span><br><span class="line">    My.Blog = <span class="string">'www.migojng.org'</span></span><br><span class="line">    My.GitHub = <span class="string">'migongorg.github.com'</span></span><br><span class="line">    <span class="keyword">return</span> My;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript eval() 安全隐患
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T10:46:01+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="为什么-eval-存在安全隐患"><a href="#为什么-eval-存在安全隐患" class="headerlink" title="为什么 eval() 存在安全隐患"></a>为什么 eval() 存在安全隐患</h2><p><code>eval()</code> 函数可以将字符进行编译后执行，如果使用 <code>eval()</code> 处理 JSON 数据，当服务器本身或发来的 JSON 数据被劫持，就很容易被利用，在客户端编译执行恶意代码。</p>
+<h2 id="如何防范和避免"><a href="#如何防范和避免" class="headerlink" title="如何防范和避免"></a>如何防范和避免</h2><ol>
+<li>使用 <code>JSON.parse()</code> 代替 <code>eval()</code> 因为 <code>JSON.parse()</code> 更加安全</li>
+<li>将 JSON 数据中的 html 字符进行转码</li>
+</ol>
+<h2 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h2><blockquote>
+<p><a href="https://book.douban.com/reading/37743052/" title="《JSON 必知必会》注入攻击" target="_blank" rel="external">《JSON 必知必会》注入攻击</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/eval/" rel="tag">#eval()</a>
+          
+        </div>
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -250,8 +383,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -301,6 +443,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么-eval-存在安全隐患"><span class="nav-number">1.</span> <span class="nav-text">为什么 eval() 存在安全隐患</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何防范和避免"><span class="nav-number">2.</span> <span class="nav-text">如何防范和避免</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐阅读"><span class="nav-number">3.</span> <span class="nav-text">推荐阅读</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -397,6 +550,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
