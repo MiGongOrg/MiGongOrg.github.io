@@ -231,6 +231,127 @@
             
               
                 
+                <a class="post-title-link" href="/2015/06/06/jQuery-实现单击可伸缩登陆窗口/" itemprop="url">
+                  jQuery 实现单击可伸缩登陆窗口 - 练习记录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-06-06T12:15:43+08:00" content="2015-06-06">
+              2015-06-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript-JQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript / JQuery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.migong.org/wp-content/uploads/2015/06/login_jq.png" target="_blank" rel="external"><img src="http://www.migong.org/wp-content/uploads/2015/06/login_jq-610x338.png" alt="login_jq"></a></p>
+<p><strong>在本次练习中所用到的CSS知识点：</strong></p>
+<p><pre lang="css" line="1">cursor: pointer; /<em>鼠标光标</em>/<br></pre><br><strong>使用伪元素:before绘制三角形的方法：</strong></p>
+<p><pre lang="css" line="1"><br>content:””;<br>width:0px;<br>height: 0px;<br>border-bottom: 15px solid #3399cc;<br>border-left: 15px solid transparent;<br>border-right: 15px solid transparent;<br></pre><br><strong>jQuery toggle()方法的使用：</strong></p>
+<p>首先引入JQ库，在练习中用到了360提供的CDN前端公共库</p>
+<p><pre><a href="http://ajax.useso.com/ajax/libs/jquery/1.7.2/jquery.min.js?ver=3.4.2" target="_blank" rel="external">http://ajax.useso.com/ajax/libs/jquery/1.7.2/jquery.min.js?ver=3.4.2</a><br></pre><br><strong>使用toggle()方法：</strong></p>
+<p><pre lang="javascript" line="1"><br>$(‘#lon’).click(function(){<br>    $(‘#lonin’).toggle();<br>})<br></pre><br>解释：当用户单击 ID 为 lon 的元素时，执行 function 中 ID 为 lonin 的元素 使用 toggle() 方法。</p>
+<p><a href="http://demo.migong.org/2015/0606-896/index.html" target="_blank" rel="external"> Demo</a></p>
+<p><strong> 练习演示文档下载：</strong><a href="http://pan.baidu.com/s/1sjOFds5" target="_blank" rel="external">单击可伸缩登陆窗口</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/06/05/纯CSS绘制高大上Login登录页面/" itemprop="url">
                   纯CSS 绘制高大上 Login 登录页面 - 练习记录
                 </a>
@@ -1156,7 +1277,7 @@ PS:我到这6步已经修改成功了，如果你那还是出错，那么还需�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">48</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1164,7 +1285,7 @@ PS:我到这6步已经修改成功了，如果你那还是出错，那么还需�
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">categories</span>
               
             </div>
@@ -1173,7 +1294,7 @@ PS:我到这6步已经修改成功了，如果你那还是出错，那么还需�
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">330</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>

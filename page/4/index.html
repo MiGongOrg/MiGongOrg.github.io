@@ -231,6 +231,156 @@
             
               
                 
+                <a class="post-title-link" href="/2015/07/24/JavaScript-简易时钟效果实现方法/" itemprop="url">
+                  JavaScript 简易时钟效果实现方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-07-24T11:43:55+08:00" content="2015-07-24">
+              2015-07-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript-JQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript / JQuery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>学习笔记：</strong></p>
+<p><code>Date()</code> 时间对象，时 <code>getHours()</code> 分 <code>getMinutes()</code> 秒 <code>getSeconds()</code></p>
+<p>设置时间间隔 <code>setInterval(function,1000)</code> 每隔一秒执行一次函数，相似的还有 <code>setTimeout(function,1000)</code> 在1秒后执行函数，只执行一次。</p>
+<p>如果需要关闭 <code>setInterval()</code> 可使用 <code>clearInterval()</code></p>
+<p><a href="http://www.migong.org/wp-content/uploads/2015/07/time.png" target="_blank" rel="external"><img src="http://www.migong.org/wp-content/uploads/2015/07/time.png" alt="time"></a></p>
+<p><strong>JavaScript 代码：</strong></p>
+<pre lang="javascript" line="1">//给每个&lt;10的数字前补0
+function zero (n) {
+    if (n&lt;10) {
+        return '0' + n;
+    } else{
+        return '' + n;
+    };
+}
+
+window.onload = function (){
+    function clock(){
+        var oImg = document.getElementsByTagName('img');
+        var oDate = new Date();
+        var str = zero(oDate.getHours()) + zero(oDate.getMinutes()) + zero(oDate.getSeconds())  //获取时，分，秒后拼接成这样的字符串 var str = '015623'
+        for (var i = 0; i &lt; oImg.length; i++) {
+                    oImg[i].src='images/'+str[i]+'.ico';
+        };
+    }
+    setInterval(clock,1000)
+    clock();  //在setInterval执行前运行一次，避免刷新归0
+}
+</pre>
+
+<p><strong>Html 代码：</strong></p>
+<pre>&lt;img src="images/0.ico" alt=""&gt;
+&lt;img src="images/0.ico" alt=""&gt;
+:
+&lt;img src="images/0.ico" alt=""&gt;
+&lt;img src="images/0.ico" alt=""&gt;
+:
+&lt;img src="images/0.ico" alt=""&gt;
+&lt;img src="images/0.ico" alt=""&gt;
+</pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/07/22/JavaScript-简易-Tab-选项卡/" itemprop="url">
                   JavaScript 简易 Tab 选项卡
                 </a>
@@ -1506,127 +1656,6 @@ rm -rf admin  // 强制删除admin目录
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/06/jQuery-实现单击可伸缩登陆窗口/" itemprop="url">
-                  jQuery 实现单击可伸缩登陆窗口 - 练习记录
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2015-06-06T12:15:43+08:00" content="2015-06-06">
-              2015-06-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JavaScript-JQuery/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript / JQuery</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://www.migong.org/wp-content/uploads/2015/06/login_jq.png" target="_blank" rel="external"><img src="http://www.migong.org/wp-content/uploads/2015/06/login_jq-610x338.png" alt="login_jq"></a></p>
-<p><strong>在本次练习中所用到的CSS知识点：</strong></p>
-<p><pre lang="css" line="1">cursor: pointer; /<em>鼠标光标</em>/<br></pre><br><strong>使用伪元素:before绘制三角形的方法：</strong></p>
-<p><pre lang="css" line="1"><br>content:””;<br>width:0px;<br>height: 0px;<br>border-bottom: 15px solid #3399cc;<br>border-left: 15px solid transparent;<br>border-right: 15px solid transparent;<br></pre><br><strong>jQuery toggle()方法的使用：</strong></p>
-<p>首先引入JQ库，在练习中用到了360提供的CDN前端公共库</p>
-<p><pre><a href="http://ajax.useso.com/ajax/libs/jquery/1.7.2/jquery.min.js?ver=3.4.2" target="_blank" rel="external">http://ajax.useso.com/ajax/libs/jquery/1.7.2/jquery.min.js?ver=3.4.2</a><br></pre><br><strong>使用toggle()方法：</strong></p>
-<p><pre lang="javascript" line="1"><br>$(‘#lon’).click(function(){<br>    $(‘#lonin’).toggle();<br>})<br></pre><br>解释：当用户单击 ID 为 lon 的元素时，执行 function 中 ID 为 lonin 的元素 使用 toggle() 方法。</p>
-<p><a href="http://demo.migong.org/2015/0606-896/index.html" target="_blank" rel="external"> Demo</a></p>
-<p><strong> 练习演示文档下载：</strong><a href="http://pan.baidu.com/s/1sjOFds5" target="_blank" rel="external">单击可伸缩登陆窗口</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1672,7 +1701,7 @@ rm -rf admin  // 强制删除admin目录
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">48</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1680,7 +1709,7 @@ rm -rf admin  // 强制删除admin目录
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">categories</span>
               
             </div>
@@ -1689,7 +1718,7 @@ rm -rf admin  // 强制删除admin目录
           
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">330</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
