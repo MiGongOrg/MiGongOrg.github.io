@@ -1,0 +1,712 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Canvas,animation,JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="日常工作中所接触到的 Canvas 动画比较少，今日偶然在 Codepen 上发现了一个很有趣，且立体感十足的 Canvas 动画，所以借此机会将代码注释并学习一下。
+Canvas 动画代码来源：
+
+Author Page: http://codepen.io/enxaneta/
+Works Code: http://codepen.io/enxaneta/pen/QjVjWj
+Inspired">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解读 Canvas 动画之 JavaScript">
+<meta property="og:url" content="http://MiGongOrg.github.io/2015/11/05/解读Canvas动画/index.html">
+<meta property="og:site_name" content="Ming">
+<meta property="og:description" content="日常工作中所接触到的 Canvas 动画比较少，今日偶然在 Codepen 上发现了一个很有趣，且立体感十足的 Canvas 动画，所以借此机会将代码注释并学习一下。
+Canvas 动画代码来源：
+
+Author Page: http://codepen.io/enxaneta/
+Works Code: http://codepen.io/enxaneta/pen/QjVjWj
+Inspired">
+<meta property="og:image" content="http://www.migong.org/wp-content/uploads/2015/11/canvas.png">
+<meta property="og:updated_time" content="2017-11-27T06:50:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解读 Canvas 动画之 JavaScript">
+<meta name="twitter:description" content="日常工作中所接触到的 Canvas 动画比较少，今日偶然在 Codepen 上发现了一个很有趣，且立体感十足的 Canvas 动画，所以借此机会将代码注释并学习一下。
+Canvas 动画代码来源：
+
+Author Page: http://codepen.io/enxaneta/
+Works Code: http://codepen.io/enxaneta/pen/QjVjWj
+Inspired">
+<meta name="twitter:image" content="http://www.migong.org/wp-content/uploads/2015/11/canvas.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://MiGongOrg.github.io/2015/11/05/解读Canvas动画/"/>
+
+  <title> 解读 Canvas 动画之 JavaScript | Ming </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ming</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Ming's Blog</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                解读 Canvas 动画之 JavaScript
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-11-05T14:57:58+08:00" content="2015-11-05">
+              2015-11-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript-JQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript / JQuery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>日常工作中所接触到的 Canvas 动画比较少，今日偶然在 Codepen 上发现了一个很有趣，且立体感十足的 Canvas 动画，所以借此机会将代码注释并学习一下。</p>
+<p><strong>Canvas 动画代码来源：</strong></p>
+<blockquote>
+<p>Author Page: <a href="http://codepen.io/enxaneta/" target="_blank" rel="external">http://codepen.io/enxaneta/</a></p>
+<p>Works Code: <a href="http://codepen.io/enxaneta/pen/QjVjWj" target="_blank" rel="external">http://codepen.io/enxaneta/pen/QjVjWj</a></p>
+<p>Inspired By: <a href="http://codepen.io/thebabydino/pen/DKaLo/" target="_blank" rel="external">http://codepen.io/thebabydino/pen/DKaLo/</a></p>
+</blockquote>
+<p><a href="http://www.migong.org/wp-content/uploads/2015/11/canvas.png" target="_blank" rel="external"><img src="http://www.migong.org/wp-content/uploads/2015/11/canvas.png" alt="canvas"></a></p>
+<p>为移动端可呈现，以下代码做了简单修改。（部分效果也可简单修改再次扩展，如对该 Canvas 动画有兴趣可查看作者 Codepen 中的 Works Code）</p>
+<p><strong>Canvas Animation JavaScript Code：</strong></p>
+<pre lang="javascript" line="1">
+/* Ming 注释 & 学习 2015.11.05 */
+var c = document.getElementById("c");
+var ctx = c.getContext("2d");
+
+var cw = c.width = 300,
+  cx = cw / 2;
+var ch = c.height = 300,
+  cy = ch / 2;
+var rad = Math.PI / 180;    //Math.PI （3.1415926）
+
+ctx.shadowBlur = 5; //阴影模糊 5
+ctx.shadowOffsetX = 0;  //阴影水平偏移量
+ctx.shadowOffsetY = 0;  //阴影垂直偏移量
+ctx.shadowColor = "#fff";   //阴影颜色 
+ctx.lineWidth = 2;  //线宽
+
+var nCusped = document.getElementById("Cusped").value;  //获取 range 改变值
+var R = 100,
+  r = R / nCusped,
+  x, y, t;
+var t = 0;
+
+/* 绘制 */
+function Draw() {
+  t += .5;
+  phi = t * rad;    //t * rad（Math.PI / 180）
+  x = cx + (R - r) * Math.cos(phi) + r * Math.cos((R - r) / r * phi);   //Math.cos(x) x余弦值。返回的是 -1.0 到 1.0 之间的数；
+  y = cy + (R - r) * Math.sin(phi) - r * Math.sin((R - r) / r * phi);   //Math.sin(x) x正玄值。返回值在 -1.0 到 1.0 之间；
+  strokeSquare(x, y, 50, phi, "hsl(" + t + " ,99%, 60%)");
+
+  requestId = window.requestAnimationFrame(Draw);   //requestAnimationFrame 执行动画 Draw
+}
+
+/* 绘制图形（正方形） */
+function strokeSquare(cx, cy, r, a, hsl) {
+  ctx.strokeStyle = hsl;  //hsl颜色
+  ctx.beginPath();  //开始
+  for (var i = 0; i < 4; i++) {
+    var x = cx + r * Math.cos(i * Math.PI / 2 + a);
+    var y = cy + r * Math.sin(i * Math.PI / 2 + a);
+    ctx.lineTo(x, y);   //画直线，i < 4（绘制正方形）；如果改成 i < 4 将（绘制三角形）
+  }
+  ctx.closePath()   //结束
+  ctx.stroke(); //绘制
+}
+
+/* 开始 */
+function start() {
+  requestId = window.requestAnimationFrame(Draw);
+  stopped = false;
+}
+
+/* 停止 */
+function stopAnim() {
+  if (requestId) {
+    window.cancelAnimationFrame(requestId);
+  }
+  stopped = true;
+}
+
+/* addEventListener 监听事件 load 完成后执行 */
+window.addEventListener("load", function() {
+  var nCusped = document.getElementById("Cusped").value;
+  r = R / nCusped;
+  t = 0;
+  start();
+}, false);
+
+/* addEventListener 监听事件 input 改变后执行 */
+Cusped.addEventListener("input", function() {
+  stopAnim();
+  ctx.clearRect(0, 0, cw, ch)   //清空矩形
+  var nCusped = this.value;
+  document.getElementById("n").innerHTML = nCusped;
+  r = R / nCusped;
+  t = 0;
+  start();
+}, false);
+
+/* addEventListener 监听事件 canvas 被点击时 toggle 动画 */
+c.addEventListener("click", function() {
+  (stopped == true) ? start() : stopAnim();
+}, false);
+</pre>
+
+<div id="frame" class="hidden-xs"><br>    <div class="phone"><br>        <div class="phoneContent"><br>            <iframe id="phoneIframe" src="http://demo.migong.org/2015/1105-1143/index.html" name="phoneIframe" frameborder="0" height="569" width="320"></iframe><br>        </div><br>        <span id="refreshBtn" data-toggle="tooltip" data-placement="top" title="点击刷新"></span><br>    </div><br></div>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Canvas/" rel="tag">#Canvas</a>
+          
+            <a href="/tags/animation/" rel="tag">#animation</a>
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/30/CSS微信雷达扫描动画/" rel="next" title="CSS 微信雷达扫描动画">
+                <i class="fa fa-chevron-left"></i> CSS 微信雷达扫描动画
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/13/JavaScript-随机修改Email地址/" rel="prev" title="JavaScript 随机修改 Email 地址">
+                JavaScript 随机修改 Email 地址 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/ming.png"
+               alt="Ming" />
+          <p class="site-author-name" itemprop="name">Ming</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">330</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MiGongOrg" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/MiGongOrg" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ming</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

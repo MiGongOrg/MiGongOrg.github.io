@@ -1,0 +1,638 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux,WDCP,服务器系统配置," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="在购买阿里云服务器的时候选择的操作系统是CentOS，众所周知CentOS是Linux发行版之一，至于为什么选择CentOS或者CentOS到底好在哪里，其实我并不能给出你明确的答案，因为我也是个服务器方面的小白。但是我厚着脸皮到处问，花了一天时间去逛论坛、找心得、看教程。最后决定使用CentOS操作系统。
+最低配置，如下图：
+
+&amp;nbsp;
+购买成功之后开始配置服务器，对于小白来说果断选择安装可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里云服务器Linux操作系统配置部署">
+<meta property="og:url" content="http://MiGongOrg.github.io/2014/05/17/阿里云服务器Linux操作系统配置部署/index.html">
+<meta property="og:site_name" content="Ming">
+<meta property="og:description" content="在购买阿里云服务器的时候选择的操作系统是CentOS，众所周知CentOS是Linux发行版之一，至于为什么选择CentOS或者CentOS到底好在哪里，其实我并不能给出你明确的答案，因为我也是个服务器方面的小白。但是我厚着脸皮到处问，花了一天时间去逛论坛、找心得、看教程。最后决定使用CentOS操作系统。
+最低配置，如下图：
+
+&amp;nbsp;
+购买成功之后开始配置服务器，对于小白来说果断选择安装可">
+<meta property="og:image" content="http://www.migong.org/wp-content/uploads/2014/05/aliyun.png">
+<meta property="og:image" content="http://www.migong.org/wp-content/uploads/2014/05/putty.png">
+<meta property="og:updated_time" content="2017-11-27T06:50:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阿里云服务器Linux操作系统配置部署">
+<meta name="twitter:description" content="在购买阿里云服务器的时候选择的操作系统是CentOS，众所周知CentOS是Linux发行版之一，至于为什么选择CentOS或者CentOS到底好在哪里，其实我并不能给出你明确的答案，因为我也是个服务器方面的小白。但是我厚着脸皮到处问，花了一天时间去逛论坛、找心得、看教程。最后决定使用CentOS操作系统。
+最低配置，如下图：
+
+&amp;nbsp;
+购买成功之后开始配置服务器，对于小白来说果断选择安装可">
+<meta name="twitter:image" content="http://www.migong.org/wp-content/uploads/2014/05/aliyun.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://MiGongOrg.github.io/2014/05/17/阿里云服务器Linux操作系统配置部署/"/>
+
+  <title> 阿里云服务器Linux操作系统配置部署 | Ming </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ming</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Ming's Blog</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                阿里云服务器Linux操作系统配置部署
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2014-05-17T13:44:41+08:00" content="2014-05-17">
+              2014-05-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在购买阿里云服务器的时候选择的操作系统是<strong>CentOS</strong>，众所周知CentOS是Linux发行版之一，至于为什么选择CentOS或者CentOS到底好在哪里，其实我并不能给出你明确的答案，因为我也是个服务器方面的小白。但是我厚着脸皮到处问，花了一天时间去逛论坛、找心得、看教程。最后决定使用CentOS操作系统。</p>
+<p>最低配置，如下图：</p>
+<p><a href="http://www.migong.org/wp-content/uploads/2014/05/aliyun.png" target="_blank" rel="external"><img src="http://www.migong.org/wp-content/uploads/2014/05/aliyun.png" alt="阿里云购买配置"></a></p>
+<p>&nbsp;</p>
+<p>购买成功之后开始配置服务器，对于小白来说果断选择安装可视化面板来进行操作，可以帮助你节省大量时间，但是问题又来了，我又该选择安装什么样的Linux虚拟主机管理系统那？别急，我帮你分析一下。</p>
+<p>通过查找资料、逛论坛、看博客我总结了以下国内常用的几款Linux虚拟主机管理操作面板：</p>
+<ul>
+<li>1.WDCP 官网：<a href="http://www.wdlinux.cn/wdcp/" target="_blank" rel="external">http://www.wdlinux.cn/wdcp/</a></li>
+<li>2.主机宝 官网：<a href="http://z.admin5.com/" target="_blank" rel="external">http://z.admin5.com/</a></li>
+<li>3.AMH 官网：<a href="http://amysql.com/AMH.htm" target="_blank" rel="external">http://amysql.com/AMH.htm</a></li>
+<li>4.LuManager 官网：<a href="https://www.zijidelu.com/" target="_blank" rel="external">https://www.zijidelu.com/</a><blockquote>
+<p>WDCP：是这四款里面功能比较强大的，所有的方方面面你能操作到的，在WDCP面板中都能找到，但资源占用会高，而且不太适合新手。</p>
+<p>主机宝：是与阿里云合作的一款主机面板，操作比较简单，容易上手，功能虽然不是很多，但是也够小白用了。</p>
+<p>AMH：相对来说AMH非常简洁清爽，操作简单，资源占用比主机宝高，但比WDCP低。而且使用难度会比主机宝高一些。</p>
+<p>LuManager：这是我最早用过的一款，功能与WDCP不相上下，如果与主机宝和AMH对比起来，同样也不太适合新手。<br>最后我还是果断的选择了WDCP虚拟主机管理系统，本打算使用LuManager来着，但是想尝试一下新东西所以这次就选择了WDCP。</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>一、安装配置方法：</strong></p>
+<p>1.首先下载Putty（在360软件管家中就能找到），之后输入IP地址，选择SSH类型，端口是22，之后Open打开输入用户名和密码回车后连接（用户名和密码是购买阿里云服务器后系统自动发送到你手机和邮箱中的，其中在你输入密码的时候是不显示光标和动态的）。</p>
+<p><a href="http://www.migong.org/wp-content/uploads/2014/05/putty.png" target="_blank" rel="external"><img src="http://www.migong.org/wp-content/uploads/2014/05/putty.png" alt="putty"></a></p>
+<p>2.选择WDCP的RPM包安装，按照以下说明输入即可。</p>
+<p>wget <a href="http://down.wdlinux.cn/in/lanmp_wdcp_ins.sh（回车）" target="_blank" rel="external">http://down.wdlinux.cn/in/lanmp_wdcp_ins.sh（回车）</a><br>sh lanmp_wdcp_ins.sh（回车）</p>
+<p>执行这样的命令之后，服务器会自动下载RPM包进行安装，你只要等待显示安装成功即可。（这个过程只需要短短的几分钟）</p>
+<p><strong>二、使用测试说明：</strong></p>
+<p>1.按照上面操作完成WDCP安装后，打开浏览器输入：<a href="http://你的ip:8080" target="_blank" rel="external">http://你的ip:8080</a></p>
+<p>默认的用户名:admin 默认的密码:wdlinux.cn<br>Mysql默认的用户名:root 默认的密码:wdlinux.cn</p>
+<p>2.成功进入WDCP管理面板后，首先要修改默认密码，以及创建测试网站。如果你已经操作到这一步，相信对于可视化面板操作就不会有任何问题了，按照面板中所提供的功能进行操作，哪里不太懂的就搜索一下相关教程，面板的使用介绍我就不在此多说了。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/WDCP/" rel="tag">#WDCP</a>
+          
+            <a href="/tags/服务器系统配置/" rel="tag">#服务器系统配置</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/05/23/PHP初学者必备Wampserver集成开发环境V2.4/" rel="prev" title="PHP初学者必备Wampserver集成开发环境V2.4">
+                PHP初学者必备Wampserver集成开发环境V2.4 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/ming.png"
+               alt="Ming" />
+          <p class="site-author-name" itemprop="name">Ming</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">330</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MiGongOrg" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/MiGongOrg" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ming</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,706 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="RequireJS,uglify," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="关于 RequireJs 它可以用来管理页面中使用的 JS 库之间的依赖关系，同时它也可以让我们以模块化的形式组织 JS 代码。而 uglify 就是将 JS 文件自动化压缩，可以设置混淆变量名，合并 JS 文件等。
+
+安装 RequireJS 与 uglify
+
+RequireJS ：bower install requirejs
+uglify ：npm install grunt-contri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RequireJS 模块化加载 与 uglify 文件压缩">
+<meta property="og:url" content="http://MiGongOrg.github.io/2016/04/19/RequireJS-模块化加载-与-uglify-文件压缩/index.html">
+<meta property="og:site_name" content="Ming">
+<meta property="og:description" content="关于 RequireJs 它可以用来管理页面中使用的 JS 库之间的依赖关系，同时它也可以让我们以模块化的形式组织 JS 代码。而 uglify 就是将 JS 文件自动化压缩，可以设置混淆变量名，合并 JS 文件等。
+
+安装 RequireJS 与 uglify
+
+RequireJS ：bower install requirejs
+uglify ：npm install grunt-contri">
+<meta property="og:image" content="http://www.migong.org/wp-content/uploads/2016/04/requirejs.jpg">
+<meta property="og:updated_time" content="2017-11-27T06:50:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RequireJS 模块化加载 与 uglify 文件压缩">
+<meta name="twitter:description" content="关于 RequireJs 它可以用来管理页面中使用的 JS 库之间的依赖关系，同时它也可以让我们以模块化的形式组织 JS 代码。而 uglify 就是将 JS 文件自动化压缩，可以设置混淆变量名，合并 JS 文件等。
+
+安装 RequireJS 与 uglify
+
+RequireJS ：bower install requirejs
+uglify ：npm install grunt-contri">
+<meta name="twitter:image" content="http://www.migong.org/wp-content/uploads/2016/04/requirejs.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://MiGongOrg.github.io/2016/04/19/RequireJS-模块化加载-与-uglify-文件压缩/"/>
+
+  <title> RequireJS 模块化加载 与 uglify 文件压缩 | Ming </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ming</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Ming's Blog</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                RequireJS 模块化加载 与 uglify 文件压缩
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-04-19T17:55:10+08:00" content="2016-04-19">
+              2016-04-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript-JQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript / JQuery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>关于 RequireJs 它可以用来管理页面中使用的 JS 库之间的依赖关系，同时它也可以让我们以模块化的形式组织 JS 代码。而 uglify 就是将 JS 文件自动化压缩，可以设置混淆变量名，合并 JS 文件等。</p>
+<p><a href="http://www.migong.org/wp-content/uploads/2016/04/requirejs.jpg" target="_blank" rel="external"><img src="http://www.migong.org/wp-content/uploads/2016/04/requirejs.jpg" alt="requirejs"></a></p>
+<p><strong>安装 RequireJS 与 uglify</strong></p>
+<blockquote>
+<p>RequireJS ：<code>bower install requirejs</code></p>
+<p>uglify ：<code>npm install grunt-contrib-uglify  --save-dev</code></p>
+</blockquote>
+<p><strong>RequireJS 的使用</strong></p>
+<p>在适当的位置引用，其中 require.js 是我们通过 Bower 下载下来的 RequireJS，而 <code>data-main</code> 中定义的则是 RequireJS 的配置文件，需要我们手动新建和修改（config.js）,在引用时不需要添加<code>.js</code>后缀。</p>
+<pre line="1" lang="html">
+<script type="text/javascript" src="assets/requirejs/require.js" data-main="src/js/config"></script>
+</pre>
+
+<p><strong>RequireJS 的 config 配置文件</strong></p>
+<pre line="1" lang="javascript">
+require.config({
+  //paths 模块声明（不需要添加.js后缀）
+  paths: {
+    'test' : 'test',  //test 是与 config.js 同级目录下的 test.js 文件
+    'jquery': '../../assets/jquery/js/jquery.min'
+  },
+  shim: {
+    //处理一些没有遵守 AMD 规范的 js 库
+    'underscore':{
+      exports: '_'  //exports值（输出的变量名），表明这个模块外部调用时的名称
+    },
+    'backbone': {
+      deps: ['underscore', 'jquery'], //deps数组，表明该模块的依赖性
+      exports: 'backbone'
+    }
+  }
+});
+
+//加载相应 JS 文件
+require(['test','jquery'],function(t) {
+  t.hello();  //执行回调函数
+});
+</pre>
+
+<p><strong>test.js 文件中 RequireJs 模块式的写法</strong></p>
+<pre line="1" lang="javascript">
+define([
+  'jquery'  //引用 jQuery
+  ], function($) {
+  return {
+    hello: function(){
+      console.log('Hello World');
+      $('.container').hide();
+    }
+  };
+});
+</pre>
+
+<p><strong>uglify 文件压缩的使用</strong></p>
+<p>通过 Gruntfile.js 配置文件来添加 uglify 文件压缩任务</p>
+<pre line="1" lang="javascript">
+module.exports = function (grunt) {
+  // 项目配置
+  grunt.initConfig({
+    //压缩文件
+    uglify:{
+      // 加注释
+      options:{
+        banner:"/* <%= pkg.name="" %=""> <%= pkg.version="" %="">*/ \n"
+      },
+      buildOne:{
+        files:{
+          //将 config.js 压缩成 config.min.js
+          'dist/js/config.min.js' : 'src/js/config.js'
+        }
+      },
+      buildAll:{
+        //将某个文件夹下的所有JS文件按结构压缩到指定的文件夹下
+        files:[{
+          expand: true,
+          cwd:'src/js',   //JS目录下
+          src:'**/*.js',  //所有JS文件
+          dest:'dist/js'  //压缩到某个目录
+        }]
+      }
+    }
+  });
+  //加载
+  grunt.loadNpmTasks('grunt-contrib-uglify');  //文件压缩
+
+  //执行任务
+  grunt.registerTask('buOne', ['uglify:buildOne']);  //grunt buOnt
+  grunt.registerTask('buAll', ['uglify:buildAll']);  //grunt buAll
+};
+</%=></%=></pre>
+
+<p>关于 uglify 的更多使用技巧：<a href="http://www.cnblogs.com/artwl/p/3449303.html" title="uglify 的使用技巧" target="_blank" rel="external">请点我</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RequireJS/" rel="tag">#RequireJS</a>
+          
+            <a href="/tags/uglify/" rel="tag">#uglify</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/19/Grunt和Bower自动化管理项目依赖库/" rel="next" title="Grunt 和 Bower 自动化管理项目依赖库">
+                <i class="fa fa-chevron-left"></i> Grunt 和 Bower 自动化管理项目依赖库
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/25/grunt-contrib-less与grunt-autoprefixer/" rel="prev" title="grunt-contrib-less 与 grunt-autoprefixer 配置使用介绍">
+                grunt-contrib-less 与 grunt-autoprefixer 配置使用介绍 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/ming.png"
+               alt="Ming" />
+          <p class="site-author-name" itemprop="name">Ming</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">330</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MiGongOrg" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/MiGongOrg" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ming</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

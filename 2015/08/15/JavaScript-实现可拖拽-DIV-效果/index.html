@@ -1,0 +1,705 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,clientX,clientY,offsetLeft,offsetTop," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="获取鼠标 onmousedown 的水平与垂直距离
+当鼠标 onmousemove 时改变 DIV 的 left 与 top 值
+当 onmouseup 后移除 onmousemove 和 自己本身 onmouseup
+
+如果不想让 DIV 移出可视窗口，还可以进一步去优化。（详见 JavaScript Code）
+
+JavaScript Code：
+
+window.onload = funct">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 实现可拖拽 DIV 效果">
+<meta property="og:url" content="http://MiGongOrg.github.io/2015/08/15/JavaScript-实现可拖拽-DIV-效果/index.html">
+<meta property="og:site_name" content="Ming">
+<meta property="og:description" content="获取鼠标 onmousedown 的水平与垂直距离
+当鼠标 onmousemove 时改变 DIV 的 left 与 top 值
+当 onmouseup 后移除 onmousemove 和 自己本身 onmouseup
+
+如果不想让 DIV 移出可视窗口，还可以进一步去优化。（详见 JavaScript Code）
+
+JavaScript Code：
+
+window.onload = funct">
+<meta property="og:image" content="http://www.migong.org/wp-content/uploads/2015/08/tuozhuai.png">
+<meta property="og:updated_time" content="2017-11-27T06:50:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 实现可拖拽 DIV 效果">
+<meta name="twitter:description" content="获取鼠标 onmousedown 的水平与垂直距离
+当鼠标 onmousemove 时改变 DIV 的 left 与 top 值
+当 onmouseup 后移除 onmousemove 和 自己本身 onmouseup
+
+如果不想让 DIV 移出可视窗口，还可以进一步去优化。（详见 JavaScript Code）
+
+JavaScript Code：
+
+window.onload = funct">
+<meta name="twitter:image" content="http://www.migong.org/wp-content/uploads/2015/08/tuozhuai.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://MiGongOrg.github.io/2015/08/15/JavaScript-实现可拖拽-DIV-效果/"/>
+
+  <title> JavaScript 实现可拖拽 DIV 效果 | Ming </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ming</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Ming's Blog</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript 实现可拖拽 DIV 效果
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2015-08-15T19:17:13+08:00" content="2015-08-15">
+              2015-08-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript-JQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript / JQuery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ol>
+<li>获取鼠标 <code>onmousedown</code> 的水平与垂直距离</li>
+<li>当鼠标 <code>onmousemove</code> 时改变 DIV 的 left 与 top 值</li>
+<li>当 <code>onmouseup</code> 后移除 <code>onmousemove</code> 和 自己本身 <code>onmouseup</code></li>
+</ol>
+<p>如果不想让 DIV 移出可视窗口，还可以进一步去优化。（详见 JavaScript Code）</p>
+<p><a href="http://www.migong.org/wp-content/uploads/2015/08/tuozhuai.png" target="_blank" rel="external"><img src="http://www.migong.org/wp-content/uploads/2015/08/tuozhuai.png" alt="tuozhuai"></a></p>
+<p><strong>JavaScript Code：</strong></p>
+<pre lang="javascript" line="1">
+window.onload = function () {
+    var oDiv = document.getElementById('divText')
+    var disX = 0;
+    var disY = 0;
+
+    oDiv.onmousedown = function (ev){
+        var oEvent = ev || event;
+        disX = oEvent.clientX - oDiv.offsetLeft;  //获取水平距离
+        disY = oEvent.clientY - oDiv.offsetTop;  //获取垂直距离
+
+        document.onmousemove = function (ev){  //将鼠标事件对象设置为 document 防止移动速度过快而产生的 bug
+            var oEvent = ev || event;
+
+            var l = oEvent.clientX - disX;
+            var t = oEvent.clientY - disY;
+
+            //不让 div 移出可视窗口
+
+            if (l < 0) {
+                l = 0;  //不让 div 移出左侧可视窗口
+            }else if (l > document.documentElement.clientWidth - oDiv.offsetWidth) {
+                l = document.documentElement.clientWidth - oDiv.offsetWidth;  //不让 div 移出右侧可视窗口
+            };
+
+            if (t < 0) {
+                t = 0;  //不让 div 移出顶部可视窗口
+            }else if (t > document.documentElement.clientHeight - oDiv.offsetHeight) {
+                t = document.documentElement.clientHeight - oDiv.offsetHeight;  //不让 div 移出底部可视窗口
+            };
+
+            //不让 div 移出可视窗口 End
+
+            oDiv.style.left = l + 'px';  //当鼠标移动时改变div水平位置
+            oDiv.style.top = t + 'px';  //当鼠标移动时改变div垂直位置
+        }
+
+        document.onmouseup = function (){  //当 onmouseup 后移除 onmousemove 和 自己本身 onmouseup
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+    }
+}
+</pre>
+
+<p><strong>CSS Code：</strong></p>
+<pre lang="css" line="1">
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#divText{
+    width:200px;
+    height: 200px;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    background-color: tomato;
+}
+
+</pre>
+
+<p><strong>HTML Code：</strong></p>
+<pre lang="html" line="1">
+<div id="divText"></div>
+</pre>
+
+<p><a href="http://demo.migong.org/2015/0815-1032/index.html" target="_blank" rel="external">Demo</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/clientX/" rel="tag">#clientX</a>
+          
+            <a href="/tags/clientY/" rel="tag">#clientY</a>
+          
+            <a href="/tags/offsetLeft/" rel="tag">#offsetLeft</a>
+          
+            <a href="/tags/offsetTop/" rel="tag">#offsetTop</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/15/JavaScript-Event禁止默认事件/" rel="next" title="JavaScript Event 禁止默认事件">
+                <i class="fa fa-chevron-left"></i> JavaScript Event 禁止默认事件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/26/JavaScript-封装-Ajax-读取TXT文件/" rel="prev" title="JavaScript 封装 Ajax 读取TXT文件">
+                JavaScript 封装 Ajax 读取TXT文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/ming.png"
+               alt="Ming" />
+          <p class="site-author-name" itemprop="name">Ming</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">330</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MiGongOrg" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/MiGongOrg" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ming</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

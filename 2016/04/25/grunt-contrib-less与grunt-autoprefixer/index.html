@@ -1,0 +1,686 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Grunt,grunt-autoprefixer,grunt-contrib-less,npm," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="grunt-contrib-less 可以自动化实现将 LESS 文件编译成 CSS 文件。
+安装：grunt-contrib-less
+npm install grunt-contrib-less --save-dev
+
+配置：grunt-contrib-less
+
+module.exports = function (grunt) {
+  grunt.initConfig({
+    less">
+<meta property="og:type" content="article">
+<meta property="og:title" content="grunt-contrib-less 与 grunt-autoprefixer 配置使用介绍">
+<meta property="og:url" content="http://MiGongOrg.github.io/2016/04/25/grunt-contrib-less与grunt-autoprefixer/index.html">
+<meta property="og:site_name" content="Ming">
+<meta property="og:description" content="grunt-contrib-less 可以自动化实现将 LESS 文件编译成 CSS 文件。
+安装：grunt-contrib-less
+npm install grunt-contrib-less --save-dev
+
+配置：grunt-contrib-less
+
+module.exports = function (grunt) {
+  grunt.initConfig({
+    less">
+<meta property="og:image" content="http://www.migong.org/wp-content/uploads/2016/04/npm.png">
+<meta property="og:updated_time" content="2017-11-27T06:50:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="grunt-contrib-less 与 grunt-autoprefixer 配置使用介绍">
+<meta name="twitter:description" content="grunt-contrib-less 可以自动化实现将 LESS 文件编译成 CSS 文件。
+安装：grunt-contrib-less
+npm install grunt-contrib-less --save-dev
+
+配置：grunt-contrib-less
+
+module.exports = function (grunt) {
+  grunt.initConfig({
+    less">
+<meta name="twitter:image" content="http://www.migong.org/wp-content/uploads/2016/04/npm.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://MiGongOrg.github.io/2016/04/25/grunt-contrib-less与grunt-autoprefixer/"/>
+
+  <title> grunt-contrib-less 与 grunt-autoprefixer 配置使用介绍 | Ming </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ming</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Ming's Blog</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                grunt-contrib-less 与 grunt-autoprefixer 配置使用介绍
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-04-25T11:11:15+08:00" content="2016-04-25">
+              2016-04-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript-JQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript / JQuery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>grunt-contrib-less 可以自动化实现将 LESS 文件编译成 CSS 文件。</p>
+<p>安装：grunt-contrib-less</p>
+<pre>npm install grunt-contrib-less --save-dev</pre>
+
+<p>配置：grunt-contrib-less</p>
+<pre line="1" lang="javascript">
+module.exports = function (grunt) {
+  grunt.initConfig({
+    less:{
+      page: {
+        options: {
+        //配置项
+        compress: true  //CSS 压缩
+        },
+        files: {
+          //目标文件，将 page.less 文件编译压缩后，生成 page.css 文件
+          'dist/css/page.css' : 'src/css/page.less'
+        }
+      }
+    }
+  });
+  //加载任务
+  grunt.loadNpmTasks('grunt-contrib-less');
+  //执行任务
+  grunt.registerTask('pageLess',['less:page']);
+};
+</pre>
+
+<p>详细介绍：<a href="https://www.npmjs.com/package/grunt-contrib-less" target="_blank" rel="external">grunt-contrib-less</a></p>
+<p><a href="http://www.migong.org/wp-content/uploads/2016/04/npm.png" target="_blank" rel="external"><img src="http://www.migong.org/wp-content/uploads/2016/04/npm.png" alt="npm"></a></p>
+<p>grunt-autoprefixer 处理 CSS 属性私有前缀，通过配置实现自动化添加 CSS 属性私有前缀。</p>
+<p>安装：grunt-autoprefixer</p>
+<pre>npm install grunt-autoprefixer --save-dev</pre>
+
+<p>配置：grunt-autoprefixer</p>
+<pre line="1" lang="javascript">
+module.exports = function (grunt) {
+  grunt.initConfig({
+    autoprefixer: {
+      options: {
+        //配置项
+        browsers: ['last 2 versions', 'ie 8', 'ie 9']  //浏览器兼容
+      },
+      css: {
+        //目标文件
+        src: [
+          'dist/css/page.css'  //将哪个 CSS 文件中的 CSS 属性添加私有前缀
+        ]
+      }
+    }
+  });
+  //加载任务
+  grunt.loadNpmTasks('grunt-autoprefixer');
+  //执行任务
+  grunt.registerTask('autoprefixerCss',['autoprefixer:css']);
+};
+</pre>
+
+<p>详细介绍：<a href="https://www.npmjs.com/package/grunt-autoprefixer" target="_blank" rel="external">grunt-autoprefixer</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Grunt/" rel="tag">#Grunt</a>
+          
+            <a href="/tags/grunt-autoprefixer/" rel="tag">#grunt-autoprefixer</a>
+          
+            <a href="/tags/grunt-contrib-less/" rel="tag">#grunt-contrib-less</a>
+          
+            <a href="/tags/npm/" rel="tag">#npm</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/19/RequireJS-模块化加载-与-uglify-文件压缩/" rel="next" title="RequireJS 模块化加载 与 uglify 文件压缩">
+                <i class="fa fa-chevron-left"></i> RequireJS 模块化加载 与 uglify 文件压缩
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/03/Sublime-Text-插件推荐/" rel="prev" title="Sublime Text 插件推荐">
+                Sublime Text 插件推荐 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/ming.png"
+               alt="Ming" />
+          <p class="site-author-name" itemprop="name">Ming</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">330</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/MiGongOrg" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/MiGongOrg" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ming</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
